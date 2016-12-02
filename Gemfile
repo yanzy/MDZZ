@@ -8,6 +8,9 @@ gem 'sqlite3'
 gem 'mysql2', '0.3.20'
 gem 'devise'
 gem 'bcrypt',               '3.1.10'
+gem 'faker',                '1.4.2'
+gem 'will_paginate',           '3.0.7'
+gem 'bootstrap-will_paginate', '0.0.10'
 gem 'bootstrap-sass',       '3.2.0.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -45,5 +48,10 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :production do
+  gem 'rails_12factor', '0.0.2'
+  gem 'puma',           '2.13.4'
 end
 
