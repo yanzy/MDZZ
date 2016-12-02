@@ -7,6 +7,7 @@ gem 'rails', '4.2.3'
 gem 'sqlite3'
 gem 'mysql2', '0.3.20'
 gem 'devise'
+gem 'bcrypt',               '3.1.10'
 gem 'bootstrap-sass',       '3.2.0.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
