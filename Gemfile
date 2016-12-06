@@ -11,6 +11,7 @@ gem 'bcrypt',               '3.1.10'
 gem 'faker',                '1.4.2'
 gem 'will_paginate',           '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
+gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 gem 'bootstrap-sass',       '3.2.0.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

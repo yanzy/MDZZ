@@ -199,3 +199,8 @@
         border-bottom: 1px solid $gray-lighter;
       }
     }
+
+    li.disabled > a {
+    color:#aaa !important;
+    }
+
