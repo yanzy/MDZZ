@@ -27,6 +27,14 @@ html {
   #wrap > .row {
     height: 100%;
     min-height: 100%; }
+  #wrap #lx-content {
+    padding-bottom: 0;
+    padding-left: 25px;
+    padding-right: 25px;
+    height: 100%;
+    width: 100%; }
+    #wrap #lx-content .main {
+      margin: 10px 0; }
   #wrap #content {
     padding-bottom: 0;
     padding-left: 265px;

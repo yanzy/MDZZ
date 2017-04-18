@@ -4,7 +4,8 @@
     <title>MDZZ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8" />
-
+    <%= stylesheet_link_tag    'application' %>
+    <%= javascript_include_tag 'application' %>
     <link rel="icon" type="image/ico" href="http://tattek.com/minimal/assets/images/favicon.ico" />
     <!-- Bootstrap -->
     <link href="/assets/css/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -37,16 +38,14 @@
               </a>
             </div>
             <div class="col-md-5"></div>
-            <div class="col-md-1"><%= link_to "后台", back_root_url, class:"navbar-brand" %></div>
             <div class="col-md-1"><%= link_to "关于", front_about_path, class:"navbar-brand" %></div>
             <div class="col-md-1"><%= link_to "帮助", front_help_path, class:"navbar-brand" %></div>
             <div class="col-md-1"><%= link_to "登录", login_path, class:"navbar-brand" %></div>
             <div class="col-md-1"><%= link_to '注册', sign_up_path, class:"navbar-brand" %></div>
-
           </div>
         </div>
         <!-- Page content -->
-        <div class="col-md-12">
+        <div id="lx-content" class="col-md-12">
 
 
             <%= yield :content_home %>
