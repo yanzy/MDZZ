@@ -86,7 +86,7 @@
     </a>
 
     <ul class="dropdown-menu wide arrow nopadding bordered">
-      <li><h1>You have <strong>3</strong> new notifications</h1></li>
+      <li><h1>You have <strong>1</strong> new notifications</h1></li>
 
       <li>
         <a href="#">
@@ -96,48 +96,8 @@
         </a>
       </li>
 
-      <li>
-        <a href="#">
-          <span class="label label-red"><i class="fa fa-power-off"></i></span>
-          Server down.
-          <span class="small">27 mins</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="#">
-          <span class="label label-orange"><i class="fa fa-plus"></i></span>
-          New order.
-          <span class="small">36 mins</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="#">
-          <span class="label label-cyan"><i class="fa fa-power-off"></i></span>
-          Server restared.
-          <span class="small">45 mins</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="#">
-          <span class="label label-amethyst"><i class="fa fa-power-off"></i></span>
-          Server started.
-          <span class="small">50 mins</span>
-        </a>
-      </li>
-
-       <li><a href="#">Check all notifications <i class="fa fa-angle-right"></i></a></li>
+      <li><a href="#">Check all notifications <i class="fa fa-angle-right"></i></a></li>
     </ul>
-
-  </li>
-  <li class="dropdown divided">
-    <%= link_to "首页", root_path %>
-  </li>
-
-  <li class="dropdown divided">
-    <%= link_to "帮助", help_path %>
   </li>
 
 
@@ -185,19 +145,20 @@
       <li class="divider"></li>
       <% if logged_in? %>
         <li>
-          <a href="#"><i class="fa fa-user"></i> <%= link_to "个人首页", current_user %></a>
+          <%= link_to "个人首页", current_user, class:"fa fa-user" %>
         </li>
 
         <li>
-          <a href="#"><i class="fa fa-calendar"></i> <%= link_to "信息修改", edit_user_path(current_user) %></a>
+          <%= link_to "信息修改", edit_user_path(current_user), class:"fa fa-calendar" %>
         </li>
 
         <li>
-          <a href="#"><i class="fa fa-envelope"></i> <%= link_to "新建用户", new_user_path%></a>
+          <%= link_to "新建用户", new_user_path, class:"fa fa-envelope" %>
         </li>
+        <li class="divider"></li>
 
         <li>
-          <a href="#"><%= link_to "退出", logout_path, method: "delete" %></a>
+          <%= link_to '退出', logout_path, method: :delete %>
         </li>
       <% else %>
         <li>
@@ -205,10 +166,9 @@
         </li>
       <% end %>
 
-      <li class="divider"></li>
 
-      <li>
-        <a href="#"><i class="fa fa-power-off"></i> Logout</a>
-      </li>
     </ul>
+  </li>
+  <li>
+    <a href="#mmenu"><i class="fa fa-comments"></i></a>
   </li>

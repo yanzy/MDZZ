@@ -1,7 +1,7 @@
-class UsersController < ApplicationController
-    before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+class Back::UsersController < Back::BaseController
+    before_action :logged_in_user, only: [:index, :create, :update, :destroy]
     before_action :correct_user, only: [:edit, :update]
-    before_action :admin_user,     only: [:destroy, :build]
+    before_action :admin_user,     only: [:create, :destroy]
     before_action :find_user ,  only: [:show,:edit,:update,:destroy]
 
     def index
@@ -16,19 +16,15 @@ class UsersController < ApplicationController
       @user = User.new
     end
 
-    def sign_up
-      @user = User.new
+    def create
+      @user = User.new(user_params)
       if @user.save
-        @user.send_activation_email
-        flash[:info] = "请检查邮箱，并激活帐号！"
-        redirect_to root_url
+        flash[:success] = "添加成功！"
+        redirect_to back_uses_path
       else
+        flash[:fail] = "添加失败！"
         render 'new'
       end
-    end
-
-    def create
-
     end
 
     def edit
@@ -80,7 +76,7 @@ class UsersController < ApplicationController
       # 确保是正确的用户
       def correct_user
         @user = User.find(params[:id])
-        redirect_to(root_url) unless current_user?(@user)
+        redirect_to(back_root_url) unless current_user?(@user)
       end
 
       def user_params

@@ -1,0 +1,9 @@
+<% content_for :content_back do %>
+  <div id="content" class="col-md-12">
+    <div class="row">
+
+        <h1><%= @current_user.try(:name) %></h1>
+
+    </div>
+  </div>
+<% end %>

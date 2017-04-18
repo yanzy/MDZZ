@@ -1,7 +1,0 @@
-
-  <div class="row">
-      <% flash.each do |message_type,message| %>
-        <div class="alter alter-<%= message_type %>" ><%= message %></div>
-      <% end %>
-      <%= yield %>
-  </div>

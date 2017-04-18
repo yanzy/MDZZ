@@ -1,11 +1,38 @@
-<% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
-</div>
+<% provide(:title, 'MDZZ') %>
+  <div id="content" class="col-md-12">
+    <div class="row">
+      <div class="pageheader">
+
+
+        <h2><i class="fa fa-tachometer"></i> 详情
+        <span>// Place subtitle here...</span></h2>
+
+
+        <div class="breadcrumbs">
+          <ol class="breadcrumb">
+            <li>You are here</li>
+            <li><a><%= link_to '首页', root_path %></a></li>
+            <li class="active"><%= link_to '详情', users_path %></li>
+          </ol>
+        </div>
+
+      </div>
+
+      <div class="main">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <aside class="col-md-4">
+                <section class="user_info">
+                  <h1>
+                    <%= gravatar_for @user %>
+                    <%= @user.name %>
+                  </h1>
+                </section>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

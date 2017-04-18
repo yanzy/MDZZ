@@ -1,0 +1,10 @@
+<div id="jGrowl" class="top-right jGrowl">
+  <% flash.each do |message_type,message| %>
+    <div class="jGrowl-notification ui-state-highlight ui-corner-all <%= message_type %>">
+      <div class="jGrowl-header"></div>
+      <div class="jGrowl-header"></div>
+      <div class="jGrowl-message"><%= message %></div>
+    </div>
+  <% end %>
+</div>
+<%= yield :content_back %>

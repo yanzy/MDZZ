@@ -3,36 +3,42 @@ Rails.application.routes.draw do
 
   get 'password_resets/edit'
 
-  get 'sessions/new'
-
-  get 'sessions/create'
-
-  get 'sessions/destroy'
-
   # devise_for :models
   root 'static_pages#home'
 
-  get 'help' => 'static_pages#help'
 
-  get 'about' => 'static_pages#about'
+  get 'sign_up' => 'users#sign_up'
 
-  get 'contact' => 'static_pages#contact'
-
-  get 'signup' => 'users#new'
-
-  get 'login' => 'sessions#new'
-
+  resources :sessions, only: :create
+  get 'login'  => 'sessions#new'
   post 'login' => 'sessions#create'
-
   delete 'logout' => 'sessions#destroy'
 
-  resources :users
+  resources :sessions, only: [:create] do
+    get 'sessions/new'
+    get 'sessions/create'
+    get 'sessions/destroy'
+  end
+
+  resources :users do
+    member do
+      :sign_up
+    end
+  end
 
   resources :account_activations, only: [:edit]
 
   resources :password_resets,     only: [:new, :create, :edit, :update]
 
+  namespace :front do
+    root "stage#home"
+    get 'help' => 'stage#help'
+    get 'about' => 'stage#about'
+  end
 
+  namespace :back do
+    root "home#home"
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
