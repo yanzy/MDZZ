@@ -4,6 +4,7 @@
   <title><%= yield(:title) %> * 爱你们</title>
   <link rel="icon" type="image/ico" href="/assetsimages/favicon.ico" />
   <!-- Bootstrap -->
+  <%= javascript_include_tag 'application' %>
   <link href="/assets/css/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
   <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/vendor/animate/animate.min.css">
@@ -12,9 +13,12 @@
   <link rel="stylesheet" href="/assets/css/vendor/bootstrap-checkbox.css">
   <link rel="stylesheet" href="/assets/js/vendor/jgrowl/css/jquery.jgrowl.min.css">
   <link rel="stylesheet" href="/assets/js/vendor/rickshaw/css/rickshaw.min.css">
-  <link rel="stylesheet" href="assets/js/vendor/jgrowl/css/jquery.jgrowl.min.css">
+  <link rel="stylesheet" href="/assets/js/vendor/jgrowl/css/jquery.jgrowl.min.css">
   <link rel="stylesheet" href="/assets/js/vendor/morris/css/morris.css">
   <link rel="stylesheet" href="/assets/js/vendor/tabdrop/css/tabdrop.css">
+  <link rel="stylesheet" href="/assets/css/jquery.gritter.css">
+  <link rel="stylesheet" href="/assets/css/jquery.noty.css">
+  <link rel="stylesheet" href="/assets/css/noty_theme_default.css">
   <link rel="stylesheet" href="/assets/js/vendor/summernote/css/summernote.css">
   <link rel="stylesheet" href="/assets/js/vendor/summernote/css/summernote-bs3.css">
   <link rel="stylesheet" href="/assets/js/vendor/chosen/css/chosen.min.css">
@@ -71,6 +75,7 @@
     </div>
 
   </div>
+  <%= render 'layouts/back/notice' %>
 
 </body>
     <script src="/assets/js/jquery.js"></script>
@@ -82,6 +87,9 @@
     <script type="text/javascript" src="/assets/js/vendor/animate-numbers/jquery.animateNumbers.js"></script>
     <script type="text/javascript" src="/assets/js/vendor/videobackground/jquery.videobackground.js"></script>
     <script type="text/javascript" src="/assets/js/vendor/blockui/jquery.blockUI.js"></script>
+
+    <script type="text/javascript" src="/assets/js/jquery.gritter.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.noty.js"></script>
 
     <script src="/assets/js/vendor/colorpicker/bootstrap-colorpicker.min.js"></script>
 

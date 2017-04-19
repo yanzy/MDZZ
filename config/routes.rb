@@ -38,6 +38,7 @@ Rails.application.routes.draw do
 
   namespace :back do
     root "home#home"
+    resources :users
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
