@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= yield(:title) %> * 爱你们</title>
+  <title>MDZZ</title>
   <link rel="icon" type="image/ico" href="/assetsimages/favicon.ico" />
   <!-- Bootstrap -->
   <%= javascript_include_tag 'application' %>
@@ -23,7 +23,6 @@
   <link rel="stylesheet" href="/assets/js/vendor/summernote/css/summernote-bs3.css">
   <link rel="stylesheet" href="/assets/js/vendor/chosen/css/chosen.min.css">
   <link rel="stylesheet" href="/assets/js/vendor/chosen/css/chosen-bootstrap.css">
-
   <link rel="stylesheet" href="/assets/js/vendor/jquery-file-upload/css/jquery.fileupload-ui-noscript.css">
   <link rel="stylesheet" href="/assets/js/vendor/jquery-file-upload/css/jquery.fileupload-ui.css">
 
@@ -64,8 +63,10 @@
             </ul>
           </div>
         </div>
+        <div class="main">
+          <%= render 'layouts/back/content' %>
+        </div>
 
-        <%= render 'layouts/back/content' %>
         <section class="videocontent" id="video"></section>
 
     </div>
@@ -76,6 +77,7 @@
 
   </div>
   <%= render 'layouts/back/notice' %>
+
 
 </body>
     <script src="/assets/js/jquery.js"></script>
@@ -185,6 +187,19 @@
 
     <script>
     $(function(){
+      $('#datepicker').datetimepicker({
+        icons: {
+          time: "fa fa-clock-o",
+          date: "fa fa-calendar",
+          up: "fa fa-arrow-up",
+          down: "fa fa-arrow-down"
+        }
+      });
+
+      $("#datepicker").on("dp.show",function (e) {
+        var newtop = $('.bootstrap-datetimepicker-widget').position().top - 45;
+        $('.bootstrap-datetimepicker-widget').css('top', newtop + 'px');
+      });
 
       // Initialize card flip
       $('.card.hover').hover(function(){

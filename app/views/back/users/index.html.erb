@@ -1,100 +1,81 @@
 <% content_for :content_back do %>
-  <div id="content" class="col-md-12">
+  <div class="pageheader">
+    <div class="tile body">
+      <ol class="breadcrumb">
+        <li><a><%= link_to '首页', root_path %></a></li>
+        <li class="active"><%= link_to '用户列表', back_users_path %></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="main">
     <div class="row">
-      <div class="pageheader">
+      <div class="col-md-12">
 
+        <section class="tile">
 
-        <h2><i class="fa fa-tachometer"></i> 用户列表
-        <span>// Place subtitle here...</span></h2>
-
-
-        <div class="breadcrumbs">
-          <ol class="breadcrumb">
-            <li>You are here</li>
-            <li><a><%= link_to '首页', root_path %></a></li>
-            <li class="active"><%= link_to '用户列表', back_users_path %></li>
-          </ol>
-        </div>
-
-      </div>
-
-      <div class="main">
-        <div class="row">
-          <div class="col-md-12">
-            <section class="tile color transparent-black">
-
-              <div class="tile-header transparent">
-                <h1><strong>用户列表</strong></h1>
-                <div class="search">
-                  <input type="text" placeholder="Search...">
-                </div>
-              </div>
-
-              <div class="tile-widget bg-transparent-black-2">
-                <div class = "tile-body nopadding">
-                  <table class="table table-datatable table-custom" id="basicDataTable">
-
-                  <thead>
-                    <tr>
-                      <th style="width: 40px;">
-                        <div class="checkbox check-transparent">
-                          <input type="checkbox" value="1" id="allchck2">
-                          <label for="allchck2"></label>
-                        </div>
-                      </th>
-                      <th class="sort-alpha sorting_asc" style="width:80px;">姓名</th>
-                      <th class="sort-alpha sorting_asc" style="width:100px;">邮箱</th>
-                      <th class="sort-alpha sorting_asc" style="width:100px;">电话</th>
-                      <th class="sort-alpha sorting_asc" style="width:100px;">地址</th>
-                      <th style="width: 60px;">操作</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <% @users.each do |user| %>
-                      <tr class="gradeA">
-                        <td>
-                          <div class="checkbox check-transparent">
-                            <input type="checkbox" value="1" id="chck04" name="<%= user.id %>">
-                            <label for="chck04"></label>
-                          </div>
-                        </td>
-                        <td><%= user.name %></td>
-                        <td><%= user.email %></td>
-                        <td><%= user.phone %></td>
-                        <td><%= user.address %></td>
-                        <td class="text-center">
-                          <a><%= link_to "详情", back_user_path(user) %></a>
-                          <a><%= link_to '编辑', edit_back_user_path(user) %></a>
-                          <a><%= link_to '删除', back_user_path(user), :method => :delete, data: { confirm: "确定删除?" } %></a>
-                        </td>
-                      </tr>
-                    <% end %>
-                  </tbody>
-
-                </table>
-                </div>
-                <div class="tile-footer bg-transparent-black-2 rounded-bottom-corners">
-                  <div class="row">
-                    <div class="col-md-4 sm-center"></div>
-
-                    <div class="col-md-4"></div>
-
-                    <div class="col-md-4 text-right">
-                      <ul class="pagination pagination-xs nomargin pagination-custom">
-                        <%= will_paginate %>
-                      </ul>
-                    </div>
-
-                </div>
-              </div>
-
-            </section>
+          <div class="tile-header">
+            <h1><strong>用户列表</strong></h1>
+            <div class="search" style="text-center">
+              <%= form_tag back_users_path, method: "get" do %>
+                <%= text_field_tag "q[name_or_email_cont]", params["q"] && params["q"]["name_or_email_cont"] ,class:"form-control", placeholder: "输入姓名或邮箱" %>
+              <% end %>
+            </div>
+            <div>
+              <%= link_to '新增', new_back_user_path, class: "btn btn-sm btn-primary"%>
+            </div>
           </div>
-        </div>
+
+          <div class = "tile-body nopadding">
+            <table class="table">
+
+              <thead>
+                <tr>
+                  <th class="sort-alpha sorting_asc" style="width:80px;">姓名</th>
+                  <th class="sort-alpha sorting_asc" style="width:100px;">邮箱</th>
+                  <th class="sort-alpha sorting_asc" style="width:100px;">电话</th>
+                  <th class="sort-alpha sorting_asc" style="width:100px;">地址</th>
+                  <th style="width: 60px;">操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @users.each do |user| %>
+                  <tr>
+                    <td><%= user.name %></td>
+                    <td><%= user.email %></td>
+                    <td><%= user.phone %></td>
+                    <td><%= user.address %></td>
+                    <td class="text-center">
+                      <a><%= link_to "详情", back_user_path(user) %></a>
+                      <a><%= link_to '编辑', edit_back_user_path(user) %></a>
+                      <a><%= link_to '删除', back_user_path(user), method: :delete, data: { confirm: "确定删除吗？" }%></a>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+
+            </table>
+            <div class="row">
+              <div class="col-md-4 sm-center"></div>
+
+              <div class="col-md-4"></div>
+
+              <div class="col-md-4 text-right">
+                <ul class="pagination pagination-xs pagination-custom">
+                  <%= will_paginate @users, :container => false, :previous_label => '上一页', :next_label => '下一页' %>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+        </section>
+
       </div>
     </div>
   </div>
-<% end %>
+
+
   <script type="text/javascript">
     $(function(){
 
@@ -168,5 +149,17 @@
       function fnGetSelected(oTable01Local){
         return oTable01Local.$('tr.row_selected');
       };
+      // $('#link').click(function() {
+      //   console.log("1111111111");
+      //   bootbox.confirm("Are you sure?", function(result) {
+      //       if (result) {
+      //           console.log("User confirmed dialog");
+      //       } else {
+      //           console.log("User declined dialog");
+      //       }
+      //   });
+      // });
     });
+
   </script>
+<% end %>

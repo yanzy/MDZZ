@@ -2,15 +2,15 @@
   <script type="text/javascript">
     <% if flash[:success] %>
       $(function(){
-        // $.jGrowl("<%= flash[:success] %>");
+        $.jGrowl("<%= flash[:success] %>");
 
-        $.gritter.add({
-            // (string | mandatory) the heading of the notification
-            title: '',
-            // (string | mandatory) the text inside the notification
-            text: '<%= flash[:success] %>',
-            class_name: 'gritter-light'
-        });
+      //   $.gritter.add({
+      //       // (string | mandatory) the heading of the notification
+      //       title: '',
+      //       // (string | mandatory) the text inside the notification
+      //       text: '<%= flash[:success] %>',
+      //       class_name: 'gritter-light'
+      //   });
       });
 
     <% elsif flash[:fail] %>

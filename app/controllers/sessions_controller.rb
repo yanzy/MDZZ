@@ -19,11 +19,11 @@ class SessionsController < ApplicationController
       end
     else
       flash[:danger] = "哎呀！登录失败了~~再检查一下输入的邮箱和密码是否正确"
-      render 'new'
+      redirect_to login_path
     end  end
 
   def destroy
     log_out if logged_in?
-    redirect_to sign_up_url
+    redirect_to login_path
   end
 end

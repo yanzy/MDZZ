@@ -1,1 +1,82 @@
-<%= render 'form' %>
+<% content_for :content_back do %>
+  <div class="tile body">
+    <ol class="breadcrumb">
+      <li><a><%= link_to '首页', back_root_path %></a></li>
+      <li class="active">新建用户</li>
+    </ol>
+  </div>
+
+  <div class="main">
+    <div class="row">
+      <div class="col-md-12">
+        <section class="tile color transparent-black">
+          <!-- tile header -->
+          <div class="tile-header">
+            <h1><strong>新建用户</h1>
+          </div>
+
+          <div class="tile-body">
+            <%= form_for @user,url: back_users_path(@user), validate: true, html: {class:"form-horizontal", role: "form", :multipart => true } do |f| %>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">姓名 *</label>
+                <div class="col-sm-4">
+                  <%= f.text_field :name, class:"form-control" %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-4 control-label">生日 *</label>
+                <div class="col-sm-4">
+                  <%= f.text_field :birthday, class:"form-control", id:"datepicker" %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-4 control-label">邮箱 *</label>
+                <div class="col-sm-4">
+                  <%= f.text_field :email, class:"form-control" %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-4 control-label">电话 *</label>
+                <div class="col-sm-4">
+                  <%= f.text_field :phone, class:"form-control" %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-4 control-label">地址 *</label>
+                <div class="col-sm-4">
+                  <%= f.text_field :address, class:"form-control" %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-4 control-label">密码 *</label>
+                <div class="col-sm-4">
+                  <%= f.password_field :password, class:"form-control" %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-4 control-label">确认密码 *</label>
+                <div class="col-sm-4">
+                  <%= f.password_field :password_confirmation, class:"form-control" %>
+                </div>
+              </div>
+
+              <div class="form-group form-footer">
+                <div class="col-sm-offset-4 col-sm-8">
+                  <%= f.submit '提交', class: 'btn btn-sm btn-primary' %>&nbsp;&nbsp;
+                  <a href=" " class="btn btn-sm btn-default" onclick="javascript:history.go(-1);">返回</a >&nbsp;&nbsp;
+                </div>
+              </div>
+
+            <% end %>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+<% end %>

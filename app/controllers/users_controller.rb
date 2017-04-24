@@ -37,11 +37,13 @@ class UsersController < ApplicationController
 
     def update
       @user = User.find(params[:id])
+      binding.pry
       if @user.update_attributes(user_params)
-        flash[:success] = "个人信息修改成功！"
+        flash[:success] = "信息修改成功！"
         redirect_to @user
       else
         render 'edit'
+        falsh[:fail] = "信息修改失败!"
       end
     end
 

@@ -9,12 +9,14 @@ gem 'mysql2', '0.3.20'
 gem 'devise'
 gem 'bcrypt',               '3.1.10'
 gem 'faker',                '1.4.2'
-gem 'will_paginate',           '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 gem 'bootstrap-sass',       '3.2.0.0'
+gem 'bootbox-rails', '~>0.4'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '>= 3.2'
+gem 'ransack'
+gem 'will_paginate', '~> 3.1.1'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -24,6 +26,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

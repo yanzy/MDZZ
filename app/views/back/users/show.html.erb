@@ -1,18 +1,58 @@
 <% content_for :content_back do %>
-  <div id="content" class="col-md-12">
-    <div class="row">
+<div class="tile body">
+  <ol class="breadcrumb">
+    <li><a><%= link_to '首页', root_path %></a></li>
+    <li class="active"><%= @user.name %>的信息</li>
+  </ol>
+</div>
 
-      <div class="pageheader">
-      </div>
-
-      <div class="main">
-        <div class="row">
-          <div class="col-md-12">
-            
+<div class="main">
+  <div class="row">
+    <div class="col-md-12">
+      <section class="tile color transparent-black">
+        <!-- tile header -->
+        <div class="tile-header">
+          <h1><strong><%= @user.name %></strong> 个人信息</h1>
+          <div class="controls">
+            <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+            <a href="#" class="remove"><i class="fa fa-times"></i></a>
           </div>
         </div>
-      </div>
+        <div class="tile-body">
 
+          <form class="form-horizontal" role="form">
+
+            <div class="form-group">
+              <label class="col-sm-4 control-label">姓名 :</label>
+              <label class="col-sm-4 control-label" style="text-align: center"><%= @user.name %></label>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-4 control-label">生日 :</label>
+              <label class="col-sm-4 control-label" style="text-align: center"><%= @user.birthday %></label>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-4 control-label">邮箱 :</label>
+              <label class="col-sm-4 control-label" style="text-align: center"><%= @user.email %></label>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-4 control-label">电话 :</label>
+              <label class="col-sm-4 control-label" style="text-align: center"><%= @user.phone %></label>
+            </div>
+
+
+            <div class="form-group">
+              <label class="col-sm-4 control-label">地址 :</label>
+              <label class="col-sm-4 control-label" style="text-align: center"><%= @user.address %></label>
+            </div>
+
+          </form>
+
+        </div>
+      </section>
     </div>
   </div>
+</div>
 <% end %>

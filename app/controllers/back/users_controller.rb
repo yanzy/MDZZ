@@ -1,7 +1,8 @@
 class Back::UsersController < Back::BaseController
     before_filter :find_user , only: [:show, :edit, :update, :destroy]
     def index
-      @users = User.paginate(page: params[:page])
+      @q = User.ransack(params[:q])
+      @users = @q.result(distinct: true).paginate(page: params[:page], :per_page => 8)
     end
 
     def show
@@ -13,9 +14,10 @@ class Back::UsersController < Back::BaseController
     end
 
     def create
+      @user = User.new(user_params)
       if @user.save
         flash[:success] = "添加成功！"
-        redirect_to back_uses_path
+        redirect_to back_users_path
       else
         flash[:fail] = "添加失败！"
         render 'new'
@@ -26,10 +28,11 @@ class Back::UsersController < Back::BaseController
     end
 
     def update
-      if @user.update_attributes(user_params)
-        flash[:success] = "个人信息修改成功！"
-        redirect_to @user
+      if @user.update(user_params)
+        flash[:success] = "信息修改成功！"
+        redirect_to back_users_path
       else
+        flash[:fail] = "信息修改成功！"
         render 'edit'
       end
     end
