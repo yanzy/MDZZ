@@ -100,11 +100,6 @@
     </ul>
   </li>
 
-
-  <li class="dropdown divided" >
-    <%= link_to "用户", users_path %>
-  </li>
-
   <li class="dropdown divided user" id="current-user">
     <div class="profile-photo">
       <img src="/assets/images/profile-photo.jpg" alt />
@@ -117,7 +112,7 @@
 
       <li>
 
-        <h3>Backgrounds:</h3>
+        <h3>背景颜色:</h3>
         <ul id="color-schemes">
           <li><a href="#" class="bg-1"></a></li>
           <li><a href="#" class="bg-2"></a></li>
@@ -128,7 +123,7 @@
         </ul>
 
         <div class="form-group videobg-check">
-          <label class="col-xs-8 control-label">Video BG</label>
+          <label class="col-xs-8 control-label">背景音效</label>
           <div class="col-xs-4 control-label">
             <div class="onoffswitch greensea small">
               <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="videobg-check">
@@ -143,30 +138,19 @@
       </li>
 
       <li class="divider"></li>
-      <% if logged_in? %>
+        <!-- <li>
+          <%= link_to "个人首页", back_user_path(current_user), class:"fa text-center" %>
+        </li> -->
         <li>
-          <%= link_to "个人首页", current_user, class:"fa fa-user" %>
+          <%= link_to "信息修改", edit_back_user_path(current_user), class:"fa text-center" %>
         </li>
-
         <li>
-          <%= link_to "信息修改", edit_back_user_path(current_user), class:"fa fa-calendar" %>
-        </li>
-
-        <li>
-          <%= link_to "新建用户", new_user_path, class:"fa fa-envelope" %>
+          <%= link_to "修改密码", fix_password_back_user_path(current_user), class:"fa text-center" %>
         </li>
         <li class="divider"></li>
-
         <li>
-          <%= link_to '退出', logout_path, method: :delete %>
+          <%= link_to '退出', logout_path, method: :delete, class:"fa text-center" %>
         </li>
-      <% else %>
-        <li>
-          <a><%= link_to "登录", login_path %></a>
-        </li>
-      <% end %>
-
-
     </ul>
   </li>
   <li>

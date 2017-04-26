@@ -1,0 +1,65 @@
+<% content_for :content_back do %>
+  <div class="pageheader">
+    <div class="tile body">
+      <ol class="breadcrumb">
+        <li><a><%= link_to '首页', back_root_path %></a></li>
+        <li class="active"><%= link_to '话题列表', back_topics_path %></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="row">
+      <div class="col-md-12">
+        <section class="tile">
+
+          <div class="tile-header">
+            <h1><strong>话题列表</strong></h1>
+
+            <div class="controls">
+              <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+              <a href="#" class="remove"><i class="fa fa-times"></i></a>
+            </div>
+            <div class="col-md-12">
+              <div class="col-md-4"></div>
+              <div class="col-md-4"></div>
+              <div class="col-md-4 text-right">
+                <%= link_to '新增', new_back_topic_path, class: "btn btn-primary" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="tile-body nopadding">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th class="text-center">序号</th>
+                  <th>标题</th>
+                  <th>创建时间</th>
+                  <th>操作</th>
+                </tr>
+              </thed>
+              <tbody>
+                <% @back_topics.each_with_index do |back_topic, index| %>
+                  <tr>
+                    <td class="text-center"><%= "#{index + 1}" %></td>
+                    <td><%= back_topic.title %></td>
+                    <td><%= back_topic.created_at.strftime("%Y-%m-%d") %></td>
+                    <td>
+                      <%= link_to '详情', back_topic_path(back_topic), class: "btn btn-sm btn-primary" %>
+                      <%= link_to '编辑', edit_back_topic_path(back_topic), class: "btn btn-sm btn-default" %>
+                      <%= link_to '删除', back_topic_path(back_topic), method: :delete, data: { confirm: "确定删除吗？" }, class: "btn btn-sm btn-danger" %>
+                    </td>
+                  </tr>
+                <% end %>
+                <% if @back_topics.blank? %>
+                  <tr><td colspan="4">无记录</td></tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
     # validates :phone, presence: true, length: { minimum:8, maximum:13 }
     has_secure_password
     validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+    has_many :back_topics
 
       # 返回指定字符串的哈希摘要
       def User.digest(string)

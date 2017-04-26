@@ -38,8 +38,12 @@ Rails.application.routes.draw do
 
   namespace :back do
     root "home#home"
-    resources :users
+    resources :users do
+      get :fix_password, on: :member
+      patch :update_password, on: :member
+    end
 
+    resources :topics
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

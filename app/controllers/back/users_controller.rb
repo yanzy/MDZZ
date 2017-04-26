@@ -1,8 +1,8 @@
 class Back::UsersController < Back::BaseController
-    before_filter :find_user , only: [:show, :edit, :update, :destroy]
+    before_filter :find_user , only: [:show, :edit, :update, :destroy, :fix_password, :update_password]
     def index
       @q = User.ransack(params[:q])
-      @users = @q.result(distinct: true).paginate(page: params[:page], :per_page => 8)
+      @users = @q.result(distinct: true).paginate(page: params[:page], :per_page => 15)
     end
 
     def show
@@ -47,6 +47,21 @@ class Back::UsersController < Back::BaseController
       end
     end
 
+    def fix_password
+
+    end
+
+    def update_password
+      if @user.update(password_params)
+        flash[:success] = "密码修改成功！"
+        log_out if logged_in?
+        redirect_to login_path
+      else
+        flash[:fail] = "密码修改成功！"
+        redirect_to back_root_path
+      end
+    end
+
     private
       # 确保是管理员
       def find_user
@@ -54,6 +69,10 @@ class Back::UsersController < Back::BaseController
       end
 
       def user_params
-          params.require(:user).permit(:name,:email,:phone,:address,:birthday,:password,:password_confirmation)
+        params.require(:user).permit(:name,:email,:phone,:address,:birthday,:password,:password_confirmation)
+      end
+
+      def password_params
+        params.require(:user).permit(:password,:password_confirmation)
       end
 end

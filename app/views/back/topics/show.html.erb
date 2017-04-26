@@ -1,0 +1,35 @@
+<% content_for :content_back do %>
+  <div class="pageheader">
+    <div class="tile body">
+      <ol class="breadcrumb">
+        <li><a><%= link_to '首页', back_root_path %></a></li>
+        <li class="active"><%= link_to '话题列表', back_topics_path %></li>
+        <li>话题详情</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="mail-content" id="mail-content">
+          <div class="message">
+            <div class="content-white">
+              <div class="col-md-8 col-md-offset-2 text-right" style="font-size:12px;">
+                创建于 <%= @back_topic.created_at.strftime(" %Y-%m-%d %H:%m") %>
+              </div>
+              <div class="text-center">
+                <h3><%= @back_topic.title %></h3>
+              </div>
+              <div class="text-center" style="font-size:14px;margin-top:20px;"><%= @back_topic.user.try(:name) if current_user.admin? %></div>
+              <div class="col-md-8 col-md-offset-2" style="margin-top: 30px;margin-bottom:50px;">
+                <%= @back_topic.content.html_safe %>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
