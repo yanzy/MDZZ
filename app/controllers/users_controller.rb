@@ -12,23 +12,19 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    def new
+    def sign_up
       @user = User.new
     end
 
-    def sign_up
-      @user = User.new
+    def create
+      @user = User.new(user_params)
       if @user.save
         @user.send_activation_email
-        flash[:info] = "请检查邮箱，并激活帐号！"
+        flash[:success] = "请检查邮箱，并激活帐号！"
         redirect_to root_url
       else
         render 'new'
       end
-    end
-
-    def create
-
     end
 
     def edit
