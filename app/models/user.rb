@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
     has_secure_password
     validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
     has_many :back_topics
+    has_many :pictures, as: :imageable
 
       # 返回指定字符串的哈希摘要
       def User.digest(string)

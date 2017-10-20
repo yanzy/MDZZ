@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425042543) do
+ActiveRecord::Schema.define(version: 20171020091853) do
 
   create_table "back_topics", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -39,6 +39,17 @@ ActiveRecord::Schema.define(version: 20170425042543) do
 
   add_index "models", ["email"], name: "index_models_on_email", unique: true, using: :btree
   add_index "models", ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true, using: :btree
+
+  create_table "pictures", force: :cascade do |t|
+    t.string   "name",           limit: 255
+    t.integer  "imageable_id",   limit: 4
+    t.string   "imageable_type", limit: 255
+    t.string   "description",    limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "pictures", ["imageable_type", "imageable_id"], name: "index_pictures_on_imageable_type_and_imageable_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name",        limit: 255
