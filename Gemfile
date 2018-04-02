@@ -18,6 +18,8 @@ gem 'sass-rails', '>= 3.2'
 gem 'ransack'
 gem 'simple_form'
 gem 'will_paginate', '~> 3.1.1'
+gem 'react-rails', '~> 1.0'
+gem 'qiniu'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

@@ -20,7 +20,7 @@ class Back::UsersController < Back::BaseController
         redirect_to back_users_path
       else
         flash[:fail] = "添加失败！"
-        render 'new'
+        render :new
       end
     end
 

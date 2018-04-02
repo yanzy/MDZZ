@@ -13,3 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootbox
+//= require react
+//= require react_ujs
+//= require components
+
+//= require plugins/plupload/moxie
+//= require plugins/plupload/plupload.dev
+//= require plugins/qiniu/qiniu

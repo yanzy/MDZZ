@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171020091853) do
+ActiveRecord::Schema.define(version: 20180402131651) do
 
   create_table "back_topics", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -21,6 +21,19 @@ ActiveRecord::Schema.define(version: 20171020091853) do
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
   end
+
+  create_table "documents", force: :cascade do |t|
+    t.string   "name",          limit: 255
+    t.integer  "user_id",       limit: 4
+    t.boolean  "status"
+    t.integer  "fileable_id",   limit: 4
+    t.string   "fileable_type", limit: 255
+    t.string   "description",   limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "documents", ["fileable_type", "fileable_id"], name: "index_documents_on_fileable_type_and_fileable_id", using: :btree
 
   create_table "models", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -42,6 +55,8 @@ ActiveRecord::Schema.define(version: 20171020091853) do
 
   create_table "pictures", force: :cascade do |t|
     t.string   "name",           limit: 255
+    t.integer  "user_id",        limit: 4
+    t.boolean  "status"
     t.integer  "imageable_id",   limit: 4
     t.string   "imageable_type", limit: 255
     t.string   "description",    limit: 255

@@ -21,7 +21,7 @@ class Back::TopicsController < Back::BaseController
       redirect_to back_topics_path
     else
       flash[:fail] = "添加失败！"
-      render 'new'
+      render :new
     end
   end
 
