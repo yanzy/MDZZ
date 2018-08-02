@@ -16,7 +16,7 @@ module ApplicationHelper
       put_policy = Qiniu::Auth::PutPolicy.new(
         "<op1pcc4aq.bkt.clouddn.com>",             #存储空间
         nil,                                       #最终资源名
-        1800，                                      #相对有效期
+        1800,                                    #相对有效期
         (Time.now + 30.minutes).to_s                #绝对有效期
       )
 
