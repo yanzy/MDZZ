@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.3'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-gem 'mysql2', '0.3.20'
+gem 'mysql2',             '~> 0.3.20'
 gem 'devise'
 gem 'bcrypt',               '3.1.10'
 gem 'faker',                '1.4.2'
@@ -60,5 +60,5 @@ end
 
 group :production do
   gem 'rails_12factor', '0.0.2'
-  gem 'puma',           '2.13.4'
+  gem 'puma',           '~> 3.10'
 end

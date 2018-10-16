@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration
         t.integer :phone
         t.string :address
         t.datetime :birthday
-        
+        t.string :avatar
     end
   end
 end

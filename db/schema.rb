@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20180402131651) do
     t.integer  "phone",             limit: 4
     t.string   "address",           limit: 255
     t.datetime "birthday"
+    t.string   "avatar",            limit: 255
     t.string   "password_digest",   limit: 255
     t.string   "remember_digest",   limit: 255
     t.boolean  "admin"
